@@ -24,14 +24,9 @@ public class CharacterFlipper : MonoBehaviour
 
         FlipX(_characterController.velocity.x < 0);
     }
-
-    public void FlipX()
-    {
-        _renderer.flipX = !_renderer.flipX;
-    }
     
     public void FlipX(bool flipX)
     {
-        _renderer.flipX = flipX;
+        transform.localScale = new Vector3(flipX ? -1 : 1, transform.localScale.y, transform.localScale.z);
     }
 }

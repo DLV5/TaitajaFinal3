@@ -14,4 +14,6 @@ public class PlayerAnimator : MonoBehaviour
     public void StartJumping() => _animator.SetBool("IsJumping", true);
 
     public void StopJumping() => _animator.SetBool("IsJumping", false);
+
+    public void Attack() => _animator.SetTrigger("Attack");
 }

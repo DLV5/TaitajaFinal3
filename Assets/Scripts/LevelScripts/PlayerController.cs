@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private float _gravityVelocity;
 
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -74,4 +75,6 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
             _animator.StopJumping();
     }
+
+    public void Attack() => _animator.Attack();
 }
