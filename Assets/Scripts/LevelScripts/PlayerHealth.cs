@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamagable
@@ -10,7 +11,11 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     [SerializeField] private int _maxHealth;
 
+    [SerializeField] private float _invincibilityTime = 1.5f;
+
     private int _currentHealth;
+
+    private bool _isInvincible;
 
     public int CurrentHealth
     {
@@ -36,6 +41,16 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
+        if (_isInvincible) return;
+
         CurrentHealth -= damage;
+
+        StartCoroutine(EnterAndExitInvincibility());
+    }
+
+    private IEnumerator EnterAndExitInvincibility()
+    {
+        _isInvincible = true;
+        yield return new WaitForSeconds(_invincibilityTime);
     }
 }
