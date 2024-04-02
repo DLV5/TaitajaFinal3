@@ -4,6 +4,8 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] private int _health = 3;
 
+    private DamageFlash _damageFlash;
+
     public int Health { 
         get { return _health; } 
         set {  
@@ -16,9 +18,14 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         } 
     }
 
+    private void Awake()
+    {
+        _damageFlash = GetComponent<DamageFlash>();
+    }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        _damageFlash.CallDamageFlash();
     }
 }
