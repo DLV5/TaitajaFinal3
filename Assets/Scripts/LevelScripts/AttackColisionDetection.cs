@@ -12,7 +12,6 @@ public class AttackColisionDetection : MonoBehaviour
             IDamagable damagable = other.GetComponent<IDamagable>();
             if(damagable != null )
             {
-                Debug.LogWarning("damagable not null");
                 OnHittedEnemy?.Invoke(damagable);
             }
         }
