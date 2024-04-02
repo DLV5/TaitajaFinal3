@@ -12,6 +12,10 @@ public class OpponentController : MonoBehaviour
     private Queue<BattleInfo> _battleInfosQueue = new Queue<BattleInfo>();
 
     [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private float _enemySpeed;
+    [SerializeField] private float _enemyAttackDistance;
+    [SerializeField] private Transform _enemySpawnTransform;
+    [SerializeField] private Transform _playerTransform;
 
     // TODO Subscribe to Battle Change and follow what ID does Battle has.
     // TODO Manage enemy death, spawn
@@ -49,12 +53,18 @@ public class OpponentController : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Enemy newEnemy = Instantiate(_enemyPrefab, _currentSpawnPoint);
+        Enemy newEnemy = Instantiate(_enemyPrefab, _enemySpawnTransform);
+        newEnemy.transform.position = _currentSpawnPoint.position;
+        newEnemy.Initialize(_playerTransform, _enemySpeed, _enemyAttackDistance);
         newEnemy.OnDied += HandleEnemyDeath;
         _enemiesSpawned++;
         _currentBattle.amountOfEnemies--;
     }
 
+    /// <summary>
+    /// Tells whether or not spawn is available, depending on the current number of spawned enemies and the total number of available enemies in the battle.
+    /// </summary>
+    /// <returns></returns>
     private bool IsSpawnAvailable()
     {
         if (_enemiesSpawned < _maxEnemiesSpawned && _currentBattle.amountOfEnemies > 0)
@@ -62,6 +72,7 @@ public class OpponentController : MonoBehaviour
         else
             return false;
     }
+
     private void HandleEnemyDeath(Enemy enemy)
     {
         enemy.OnDied -= HandleEnemyDeath;
@@ -74,7 +85,11 @@ public class OpponentController : MonoBehaviour
         }
         else
         {
-            OnBattleEnded?.Invoke();
+            if(_enemiesSpawned == 0)
+            {
+                OnBattleEnded?.Invoke();
+                Debug.Log("The battle is ended");
+            }
         }
     }
 }
