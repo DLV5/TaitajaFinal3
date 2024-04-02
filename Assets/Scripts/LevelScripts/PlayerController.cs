@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         ApplyGravity();
         ApplyMovement();
+        ShouldStopJumping();
     }
 
     public void SetDirection(InputAction.CallbackContext context)
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         _gravityVelocity += _jumpPower;
-        _animator.Jump();
+        _animator.StartJumping();
     }
 
     private void ApplyGravity()
@@ -67,4 +68,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool IsGrounded() => _characterController.isGrounded;
+
+    private void ShouldStopJumping()
+    {
+        if (IsGrounded())
+            _animator.StopJumping();
+    }
 }
