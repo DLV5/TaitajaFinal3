@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> OnDied;
 
     [SerializeField] private Collider _attackHitBox;
+    [SerializeField] private EnemyAnimator _animator;
 
     private float _attackDistance;
     private bool _isAttacking;
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     private float _speed;
 
     private bool _isFlipped = false;
+
 
     // TODO enemy logic
     public void Initialize(Transform playerTransform, float speed, float attackDistance)
@@ -61,8 +63,8 @@ public class Enemy : MonoBehaviour
     {
         _isAttacking = true;
         Debug.Log("Started Enemy Attack");
-        yield return new WaitForSeconds(2f);
-
+        yield return new WaitForSeconds(1f);
+        _animator.Attack();
         if (_attackHitBox.bounds.Contains(_playerTransform.position))
         {
             Debug.Log("Contains, so can deal damage");

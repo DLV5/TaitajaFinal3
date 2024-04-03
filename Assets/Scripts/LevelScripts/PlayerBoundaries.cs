@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerBoundaries : MonoBehaviour
@@ -10,19 +11,19 @@ public class PlayerBoundaries : MonoBehaviour
     private void OnEnable()
     {
         LevelManager.Instance.MoveToTheNextBattle += OnBattleChange;
-        CameraConfinerController.OnPlayerReachedNewBattle += SetNewScreenBoundaries;
+        CameraConfinerController.OnPlayerReachedNewBattle += () => { StartCoroutine(SetNewScreenBoundaries()); };
     }
 
     // Use this for initialization
     void Start()
     {
-        SetNewScreenBoundaries();
+        StartCoroutine(SetNewScreenBoundaries());
     }
 
     private void OnDisable()
     {
         LevelManager.Instance.MoveToTheNextBattle -= OnBattleChange;
-        CameraConfinerController.OnPlayerReachedNewBattle -= SetNewScreenBoundaries;
+        CameraConfinerController.OnPlayerReachedNewBattle -= () => { StartCoroutine(SetNewScreenBoundaries()); };
     }
 
     // Update is called once per frame
@@ -38,8 +39,9 @@ public class PlayerBoundaries : MonoBehaviour
 
     private void OnBattleChange() => _shouldBeEnabled = false;
 
-    private void SetNewScreenBoundaries()
+    private IEnumerator SetNewScreenBoundaries()
     {
+        yield return new WaitForSeconds(.1f);
         _shouldBeEnabled = true;
         screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
     }

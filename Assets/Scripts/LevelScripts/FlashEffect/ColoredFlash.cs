@@ -1,95 +1,79 @@
 using System.Collections;
-
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace BarthaSzabolcs.Tutorial_SpriteFlash
+public class FlashMaterials
 {
-    public class ColoredFlash : MonoBehaviour
-    {
-        #region Datamembers
+    public Material TargetMaterial;
+    public Material BaseMaterial;
+    public SpriteRenderer Renderer;
+} 
 
-        #region Editor Settings
+public class ColoredFlash : MonoBehaviour
+{
+    #region Datamembers
 
-        [Tooltip("Material to switch to during the flash.")]
-        [SerializeField] private Material flashMaterial;
+    #region Editor Settings
 
-        [Tooltip("Duration of the flash.")]
-        [SerializeField] private float duration;
+    [Tooltip("Material to switch to during the flash.")]
+    [SerializeField] private Material flashMaterial;
+
+    [Tooltip("Duration of the flash.")]
+    [SerializeField] private float duration;
         
-        [Tooltip("Delay of the flash.")]
-        [SerializeField] private float delay;
+    [Tooltip("All materials of gameobject.")]
+    [SerializeField] private List<FlashMaterials> targetMaterials;
 
-        #endregion
-        #region Private Fields
+    #endregion
+    #region Private Fields
 
-        // The SpriteRenderer that should flash.
-        private SpriteRenderer spriteRenderer;
+    // The SpriteRenderer that should flash.
+    private SpriteRenderer spriteRenderer;
 
-        // The material that was in use, when the script started.
-        private Material originalMaterial;
+    // The material that was in use, when the script started.
+    private Material originalMaterial;
 
-        // The currently running coroutine.
-        private Coroutine flashRoutine;
+    // The currently running coroutine.
+    private Coroutine flashRoutine;
 
-        #endregion
+    #endregion
 
-        #endregion
+    #endregion
 
 
-        #region Methods
+    #region Methods
 
-        #region Unity Callbacks
-
-        void Start()
+    public void Flash(Color color)
+    {
+        // If the flashRoutine is not null, then it is currently running.
+        if (flashRoutine != null)
         {
-            // Get the SpriteRenderer to be used,
-            // alternatively you could set it from the inspector.
-            spriteRenderer = GetComponent<SpriteRenderer>();
-
-            // Get the material that the SpriteRenderer uses, 
-            // so we can switch back to it after the flash ended.
-            originalMaterial = spriteRenderer.material;
-
-            // Copy the flashMaterial material, this is needed, 
-            // so it can be modified without any side effects.
-            flashMaterial = new Material(flashMaterial);
+            // In this case, we should stop it first.
+            // Multiple FlashRoutines the same time would cause bugs.
+            StopCoroutine(flashRoutine);
         }
 
-        #endregion
-
-        public void Flash(Color color)
-        {
-            // If the flashRoutine is not null, then it is currently running.
-            if (flashRoutine != null)
-            {
-                // In this case, we should stop it first.
-                // Multiple FlashRoutines the same time would cause bugs.
-                StopCoroutine(flashRoutine);
-            }
-
-            // Start the Coroutine, and store the reference for it.
-            flashRoutine = StartCoroutine(FlashRoutine(color));
-        }
-
-        private IEnumerator FlashRoutine(Color color)
-        {
-            yield return new WaitForSeconds(delay);
-            // Swap to the flashMaterial.
-            spriteRenderer.material = flashMaterial;
-
-            // Set the desired color for the flash.
-            flashMaterial.color = color;
-
-            // Pause the execution of this function for "duration" seconds.
-            yield return new WaitForSeconds(duration);
-
-            // After the pause, swap back to the original material.
-            spriteRenderer.material = originalMaterial;
-
-            // Set the flashRoutine to null, signaling that it's finished.
-            flashRoutine = null;
-        }
-
-        #endregion
+        // Start the Coroutine, and store the reference for it.
+        flashRoutine = StartCoroutine(FlashRoutine(color));
     }
+
+    private IEnumerator FlashRoutine(Color color)
+    {
+        // Swap to the flashMaterial.
+        spriteRenderer.material = flashMaterial;
+
+        // Set the desired color for the flash.
+        flashMaterial.color = color;
+
+        // Pause the execution of this function for "duration" seconds.
+        yield return new WaitForSeconds(duration);
+
+        // After the pause, swap back to the original material.
+        spriteRenderer.material = originalMaterial;
+
+        // Set the flashRoutine to null, signaling that it's finished.
+        flashRoutine = null;
+    }
+
+    #endregion
 }

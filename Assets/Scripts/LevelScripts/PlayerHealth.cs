@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
     public static event Action<int> OnPlayerHealthChanged;
-    public static event Action OnPlayerHealthDied;
+    public static event Action OnPlayerDied;
 
     [SerializeField] private PlayerHUD _playerHUD;
 
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
             if(_currentHealth <= 0)
             {
-                OnPlayerHealthDied?.Invoke();
+                OnPlayerDied?.Invoke();
             }
         }
     }

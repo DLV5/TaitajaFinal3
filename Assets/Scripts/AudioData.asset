@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b416d6461827fa41a4f3a30e63f6ca8, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  AudioObjects:
+  - audioName: BackgroundMusic
+    audioClip: {fileID: 8300000, guid: 46641488cee4a774ebc22dc296e2767e, type: 3}
+  - audioName: Pick
+    audioClip: {fileID: 8300000, guid: 66dcbc90a9df51046ba067a64d8bcaec, type: 3}
+  - audioName: ButtonClick
+    audioClip: {fileID: 8300000, guid: 3e4a167dec84b8f489ea4e4c8b99783c, type: 3}
+  - audioName: TurnLightOn
+    audioClip: {fileID: 8300000, guid: de3c1f4bfb071e440bb7aa724160284f, type: 3}
+  - audioName: TurnLightOff
+    audioClip: {fileID: 8300000, guid: 0d6db5d36172f2a43a8ee1f4d10f0cc8, type: 3}
+  - audioName: TurnLightOff
+    audioClip: {fileID: 8300000, guid: 0d6db5d36172f2a43a8ee1f4d10f0cc8, type: 3}
+  - audioName: FireEmployee
+    audioClip: {fileID: 8300000, guid: a8b65226a761255438ea62c4faa0ddd9, type: 3}
+  - audioName: Incorrect
+    audioClip: {fileID: 8300000, guid: 837a4f668be3b014fbfab9f79ea1f604, type: 3}
+  - audioName: Correct
+    audioClip: {fileID: 8300000, guid: 2654b5781657a9d41adf97ce2b664d8e, type: 3}
