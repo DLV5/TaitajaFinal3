@@ -22,6 +22,8 @@ public class CharacterFlipper : MonoBehaviour
     {
         if (!_haveCharacterController) return;
 
+        if (_characterController.velocity.magnitude < 0.2f) return;
+
         FlipX(_characterController.velocity.x < 0);
     }
     
