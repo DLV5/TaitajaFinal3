@@ -1,10 +1,14 @@
+using BarthaSzabolcs.Tutorial_SpriteFlash;
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamagable
 {
+    public static event Action OnDied;
+
     [SerializeField] private int _health = 3;
 
-    private DamageFlash _damageFlash;
+    private ColoredFlash _flash;
 
     public int Health { 
         get { return _health; } 
@@ -13,6 +17,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
             if(_health <= 0)
             {
+                OnDied?.Invoke();
                 Destroy(gameObject);
             }
         } 
@@ -20,12 +25,12 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     private void Awake()
     {
-        _damageFlash = GetComponent<DamageFlash>();
+        _flash = GetComponent<ColoredFlash>();
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        _damageFlash.CallDamageFlash();
+        _flash.Flash(Color.white);
     }
 }

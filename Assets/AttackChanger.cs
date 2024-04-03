@@ -6,14 +6,9 @@ public class AttackChanger : StateMachineBehaviour
     [SerializeField] private string _attackHitBoxName;
     private Collider _attackHitBox;
 
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        _attackHitBox =
-            FindObjectsByType<Collider>(FindObjectsInactive.Include, FindObjectsSortMode.None)
-            .FirstOrDefault(s => s.name == _attackHitBoxName);
-        _attackHitBox.gameObject.SetActive(true);
-        Debug.Log(_attackHitBox.gameObject.name);
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -25,6 +20,14 @@ public class AttackChanger : StateMachineBehaviour
     {
         animator.ResetTrigger("Attack");
         _attackHitBox.gameObject.SetActive(false);
+    }
+
+    public void EnableHitBox()
+    {
+        _attackHitBox =
+           FindObjectsByType<Collider>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+           .FirstOrDefault(s => s.name == _attackHitBoxName);
+        _attackHitBox.gameObject.SetActive(true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

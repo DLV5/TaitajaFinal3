@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerAttackHandler.IsAttacking) return;
+
         ApplyGravity();
         ApplyMovement();
         ShouldStopJumping();
