@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,6 +45,16 @@ public partial class OpponentController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        EnemyHealth.OnDied += HandleEnemyDeath;
+    }
+
+    private void OnDisable()
+    {
+        EnemyHealth.OnDied -= HandleEnemyDeath;
+    }
+
     private void ChangeBattle(int battleID) // Moves to the next battle and spawn logic suitable for the next battle 
     {
         _currentSpawnPoints = _spawnPointsQueue.Dequeue();
@@ -57,7 +66,6 @@ public partial class OpponentController : MonoBehaviour
         Enemy newEnemy = Instantiate(_enemyPrefab, _enemySpawnTransform);
         newEnemy.transform.position = _currentSpawnPoints[UnityEngine.Random.Range(0, _currentSpawnPoints.Count)].position;
         newEnemy.Initialize(_playerTransform, _enemySpeed, _enemyAttackDistance);
-        newEnemy.OnDied += HandleEnemyDeath;
         _enemiesSpawned++;
         _currentBattle.amountOfEnemies--;
     }
@@ -74,11 +82,11 @@ public partial class OpponentController : MonoBehaviour
             return false;
     }
 
-    private void HandleEnemyDeath(Enemy enemy)
+    private void HandleEnemyDeath()
     {
-        enemy.OnDied -= HandleEnemyDeath;
-        enemy.DestroyEnemy();
         _enemiesSpawned--;
+
+        Debug.Log("New enemy should be spawn now");
 
         if (IsSpawnAvailable())
         {
