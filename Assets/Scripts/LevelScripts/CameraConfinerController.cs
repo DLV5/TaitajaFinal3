@@ -59,6 +59,6 @@ public class CameraConfinerController : MonoBehaviour
     {
         if (index >= _colliders.Count) return false;
 
-        return (_colliders[index].transform.position - _player.transform.position).magnitude < 11.5f;
+        return (_colliders[index].transform.position - _player.transform.position).magnitude < 13.5f;
     }
 }
