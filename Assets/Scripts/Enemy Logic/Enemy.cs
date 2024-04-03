@@ -35,10 +35,8 @@ public class Enemy : MonoBehaviour
             return;
 
         LookAtPlayer();
-        var toMove = Vector3.MoveTowards(transform.position, _playerTransform.position, _speed / 10 * Time.deltaTime);
-        toMove.y = transform.position.y;
-        transform.position = toMove;
-        if(Vector3.Distance(transform.position, _playerTransform.position) < _attackDistance)
+        MoveToPlayer();
+        if (Vector3.Distance(transform.position, _playerTransform.position) < _attackDistance)
         {
             StartCoroutine(Attacking());
         }
@@ -51,11 +49,18 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void MoveToPlayer()
+    {
+        Vector3 direction = (_playerTransform.position - transform.position).normalized;
+        transform.position += direction * _speed * Time.deltaTime;
+    }
+
     IEnumerator Attacking() // To-Do:  attack logic
     {
         _isAttacking = true;
         yield return new WaitForSeconds(1f);
         _animator.Attack();
+
         if (_attackHitBox.bounds.Contains(_playerTransform.position))
         {
             IDamagable damagable = _playerTransform.GetComponent<IDamagable>();
