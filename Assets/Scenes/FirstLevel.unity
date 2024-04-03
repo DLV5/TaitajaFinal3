@@ -937,6 +937,7 @@ GameObject:
   - component: {fileID: 416598016}
   - component: {fileID: 416598015}
   - component: {fileID: 416598017}
+  - component: {fileID: 416598018}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -990,6 +991,19 @@ MonoBehaviour:
   _generalCollider: {fileID: 583654595}
   _confiner: {fileID: 549033392}
   _player: {fileID: 106758242}
+--- !u!114 &416598018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416598014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6a1b1efe5e834ebd32d05b67d4163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicName: BattleMusic
 --- !u!1001 &476108299
 PrefabInstance:
   m_ObjectHideFlags: 0

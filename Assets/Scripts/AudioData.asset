@@ -13,21 +13,19 @@ MonoBehaviour:
   m_Name: AudioData
   m_EditorClassIdentifier: 
   AudioObjects:
-  - audioName: BackgroundMusic
-    audioClip: {fileID: 8300000, guid: 46641488cee4a774ebc22dc296e2767e, type: 3}
-  - audioName: Pick
-    audioClip: {fileID: 8300000, guid: 66dcbc90a9df51046ba067a64d8bcaec, type: 3}
+  - audioName: Jump
+    audioClip: {fileID: 8300000, guid: 2186c625bb53f0841aaeaefe40ae2a8e, type: 3}
   - audioName: ButtonClick
-    audioClip: {fileID: 8300000, guid: 3e4a167dec84b8f489ea4e4c8b99783c, type: 3}
-  - audioName: TurnLightOn
-    audioClip: {fileID: 8300000, guid: de3c1f4bfb071e440bb7aa724160284f, type: 3}
-  - audioName: TurnLightOff
-    audioClip: {fileID: 8300000, guid: 0d6db5d36172f2a43a8ee1f4d10f0cc8, type: 3}
-  - audioName: TurnLightOff
-    audioClip: {fileID: 8300000, guid: 0d6db5d36172f2a43a8ee1f4d10f0cc8, type: 3}
-  - audioName: FireEmployee
-    audioClip: {fileID: 8300000, guid: a8b65226a761255438ea62c4faa0ddd9, type: 3}
-  - audioName: Incorrect
-    audioClip: {fileID: 8300000, guid: 837a4f668be3b014fbfab9f79ea1f604, type: 3}
-  - audioName: Correct
-    audioClip: {fileID: 8300000, guid: 2654b5781657a9d41adf97ce2b664d8e, type: 3}
+    audioClip: {fileID: 0}
+  - audioName: Run
+    audioClip: {fileID: 0}
+  - audioName: Attack1
+    audioClip: {fileID: 8300000, guid: dd6b7b75a966bf545b86916fedc6893f, type: 3}
+  - audioName: Attack2
+    audioClip: {fileID: 8300000, guid: b447dec49ebafe348bf9eb406b854797, type: 3}
+  - audioName: MainMenuMusic
+    audioClip: {fileID: 8300000, guid: cf9eb945fb2f9c145bf7849b7793daa3, type: 3}
+  - audioName: BattleMusic
+    audioClip: {fileID: 8300000, guid: 05308d5d0092a9a41abb804beb10b124, type: 3}
+  - audioName: DeathSound
+    audioClip: {fileID: 8300000, guid: 468554ca1b5cfef4689d12d98cf8e2c1, type: 3}
