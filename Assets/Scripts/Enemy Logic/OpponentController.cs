@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpponentController : MonoBehaviour
+public partial class OpponentController : MonoBehaviour
 {
     public event Action OnBattleEnded;
-    [SerializeField] private List<Transform> _spawnPoints = new List<Transform>();
-    private Queue<Transform> _spawnPointsQueue = new Queue<Transform>();
+    [SerializeField] private List<ZonePoints> _spawnPoints = new List<ZonePoints>();
+    private Queue<List<Transform>> _spawnPointsQueue = new Queue<List<Transform>>();
+    private List<Transform> _currentSpawnPoints = new List<Transform>();
     [SerializeField] private List<BattleInfo> _battleInfos = new List<BattleInfo>();
     private Queue<BattleInfo> _battleInfosQueue = new Queue<BattleInfo>();
 
@@ -30,9 +31,9 @@ public class OpponentController : MonoBehaviour
 
     private void Awake()
     {
-        foreach (Transform t in _spawnPoints)
+        foreach (ZonePoints point in _spawnPoints)
         {
-            _spawnPointsQueue.Enqueue(t);
+            _spawnPointsQueue.Enqueue(point.spawnPoints);
         }
         foreach (BattleInfo info in _battleInfos)
         {
@@ -47,14 +48,14 @@ public class OpponentController : MonoBehaviour
 
     private void ChangeBattle(int battleID) // Moves to the next battle and spawn logic suitable for the next battle 
     {
-        _currentSpawnPoint = _spawnPointsQueue.Dequeue();
+        _currentSpawnPoints = _spawnPointsQueue.Dequeue();
         _currentBattle = _battleInfosQueue.Dequeue();
     }
 
     private void SpawnEnemy()
     {
         Enemy newEnemy = Instantiate(_enemyPrefab, _enemySpawnTransform);
-        newEnemy.transform.position = _currentSpawnPoint.position;
+        newEnemy.transform.position = _currentSpawnPoints[UnityEngine.Random.Range(0, _currentSpawnPoints.Count)].position;
         newEnemy.Initialize(_playerTransform, _enemySpeed, _enemyAttackDistance);
         newEnemy.OnDied += HandleEnemyDeath;
         _enemiesSpawned++;
