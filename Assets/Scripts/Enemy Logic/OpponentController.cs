@@ -28,6 +28,8 @@ public partial class OpponentController : MonoBehaviour
     private int _enemiesSpawned = 0;
     [SerializeField] private int _maxEnemiesSpawned =3;
 
+    private int currentBattleID = 0;
+
     private void Awake()
     {
         foreach (ZonePoints point in _spawnPoints)
@@ -38,27 +40,31 @@ public partial class OpponentController : MonoBehaviour
         {
             _battleInfosQueue.Enqueue(info);
         }
-        ChangeBattle(0);
-        while (IsSpawnAvailable())
-        {
-            SpawnEnemy();
-        }
+        ChangeBattle();
     }
 
     private void OnEnable()
     {
         EnemyHealth.OnDied += HandleEnemyDeath;
+        CameraConfinerController.OnPlayerReachedNewBattle += ChangeBattle;
     }
 
     private void OnDisable()
     {
         EnemyHealth.OnDied -= HandleEnemyDeath;
+        CameraConfinerController.OnPlayerReachedNewBattle -= ChangeBattle;
     }
 
-    private void ChangeBattle(int battleID) // Moves to the next battle and spawn logic suitable for the next battle 
+    private void ChangeBattle() // Moves to the next battle and spawn logic suitable for the next battle 
     {
         _currentSpawnPoints = _spawnPointsQueue.Dequeue();
         _currentBattle = _battleInfosQueue.Dequeue();
+        currentBattleID++;
+
+        while (IsSpawnAvailable())
+        {
+            SpawnEnemy();
+        }
     }
 
     private void SpawnEnemy()
