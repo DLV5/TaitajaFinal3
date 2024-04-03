@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         if(!IsGrounded()) 
             return;
 
+        AudioManager.Instance.PlaySFX("Jump");  // Jump sound effect
         _gravityVelocity += _jumpPower;
         _animator.StartJumping();
     }
@@ -78,5 +79,10 @@ public class PlayerController : MonoBehaviour
             _animator.StopJumping();
     }
 
-    public void Attack() => _animator.Attack();
+    public void Attack()
+    {
+        int randomIndex = Random.Range(1, 3); // Generates random index for sound effect
+        AudioManager.Instance.PlaySFX("Attack" + randomIndex);
+        _animator.Attack();
+    }
 }
