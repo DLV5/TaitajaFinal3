@@ -1,4 +1,3 @@
-using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System;
 using UnityEngine;
 
