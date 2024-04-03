@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,19 +126,19 @@ TextureImporter:
       name: Mainknight_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 1569
+        x: 46
+        y: 1696
         width: 278
-        height: 425
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 424
+      alignment: 9
+      pivot: {x: 0.4765754, y: 0.86246306}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 743b6ffe785b1f24b9fe67de01d613ac
-      internalID: 792396699
+      spriteID: fcb3ab836dfda21468147475c2b7c2ec
+      internalID: -387268025
       vertices: []
       indices: 
       edges: []
@@ -151,15 +151,15 @@ TextureImporter:
         y: 1901
         width: 303
         height: 503
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.8199195, y: 0.92397326}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb28cab41bc71c84e981b5b7fa480b83
-      internalID: -640871013
+      spriteID: 6c2556a8e15141047acac844462971f1
+      internalID: -1359763729
       vertices: []
       indices: 
       edges: []
@@ -172,15 +172,15 @@ TextureImporter:
         y: 1905
         width: 302
         height: 503
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.13316557, y: 0.92397326}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c6eb0f9ec085054289ad1fe2e0e61b2
-      internalID: -1700952762
+      spriteID: 2d6b5ad0d1cba734b862248034517b6d
+      internalID: 1921334787
       vertices: []
       indices: 
       edges: []
@@ -189,19 +189,19 @@ TextureImporter:
       name: Mainknight_3
       rect:
         serializedVersion: 2
-        x: 1263
-        y: 1574
+        x: 1396
+        y: 1571
         width: 278
         height: 424
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49063045, y: 0.8563195}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d52f2d403a998dc41b33cf501e017621
-      internalID: -893036698
+      spriteID: 55666b70fda82ea4a9d9564a9a912c94
+      internalID: -446685035
       vertices: []
       indices: 
       edges: []
@@ -214,15 +214,15 @@ TextureImporter:
         y: 1682
         width: 468
         height: 626
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49999946, y: 0.0089056725}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3d88840f51f238439a3a216b860c200
-      internalID: 2123050549
+      spriteID: 06b9a25557a359f49b68cccaf2e3b48b
+      internalID: -2059966297
       vertices: []
       indices: 
       edges: []
@@ -235,15 +235,15 @@ TextureImporter:
         y: 1525
         width: 143
         height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.52732325, y: 0.9749964}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0e33fe6056bc7948b2caa0d7c6ec012
-      internalID: 2109636776
+      spriteID: a288421dd5cf35741a0f2bc7fc659aaa
+      internalID: 1509291749
       vertices: []
       indices: 
       edges: []
@@ -256,15 +256,15 @@ TextureImporter:
         y: 1444
         width: 65
         height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9867585}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3fd864c789589a4bb23afc9cafcaa9b
-      internalID: 1284775221
+      spriteID: 5d4c29d1fd368264087307f29f0903eb
+      internalID: -1650637625
       vertices: []
       indices: 
       edges: []
@@ -277,15 +277,15 @@ TextureImporter:
         y: 1448
         width: 65
         height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.97360325}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f1a6b061045d5d4ca7dc19c917404d7
-      internalID: 2084350794
+      spriteID: 168502aaea0e1c949a6fd1470494f500
+      internalID: -607190986
       vertices: []
       indices: 
       edges: []
@@ -298,15 +298,15 @@ TextureImporter:
         y: 1529
         width: 141
         height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.97221863}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70b8030214198aa45845945bf98f0132
-      internalID: 121133172
+      spriteID: 4e808a97e9456e44eac4dbdaf651776d
+      internalID: -1957941933
       vertices: []
       indices: 
       edges: []
@@ -319,15 +319,15 @@ TextureImporter:
         y: 1448
         width: 56
         height: 83
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5000022, y: 0.955059}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b83a56c9d11b0bc489d7d3aeafdb2201
-      internalID: -1501924688
+      spriteID: 43b8e808a4a669342a29a255d95ffbb9
+      internalID: -1602817351
       vertices: []
       indices: 
       edges: []
@@ -340,15 +340,15 @@ TextureImporter:
         y: 1445
         width: 57
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5228496, y: 0.966295}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e53f8cdff5cd06d41b28f96706aa5fe3
-      internalID: 1164106500
+      spriteID: 2089510a83d690b439a9c18eec492d1a
+      internalID: 726840155
       vertices: []
       indices: 
       edges: []
@@ -361,15 +361,15 @@ TextureImporter:
         y: 1404
         width: 51
         height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.47446337, y: 0.9059456}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4f559e47f606a34e88523de41003083
-      internalID: -684599862
+      spriteID: 866a00debc182684cb271ddf0180160d
+      internalID: -1035055281
       vertices: []
       indices: 
       edges: []
@@ -382,15 +382,15 @@ TextureImporter:
         y: 1408
         width: 52
         height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5500934, y: 0.9798343}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 749a139345fec284ebdd018da937b6cc
-      internalID: -92373501
+      spriteID: 9db93003aa6f1db4eb17a92dfc7bd68a
+      internalID: -1831654410
       vertices: []
       indices: 
       edges: []
@@ -403,15 +403,15 @@ TextureImporter:
         y: 1144
         width: 607
         height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49356306, y: 0.3342385}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 830119789604fe047b1392986b986242
-      internalID: -1086324748
+      spriteID: 1647cfefab43522488efee7b6fbf6e79
+      internalID: -902724879
       vertices: []
       indices: 
       edges: []
@@ -424,15 +424,15 @@ TextureImporter:
         y: 1130
         width: 284
         height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5066872, y: 0.97060966}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8c46674babdd564385b4c97c0ccc2ee
-      internalID: 841829054
+      spriteID: 6ec6a3e2ac4e6fb45b133737e8ba3eed
+      internalID: 1453618211
       vertices: []
       indices: 
       edges: []
@@ -445,15 +445,15 @@ TextureImporter:
         y: 362
         width: 630
         height: 611
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.50904405, y: 0.9911313}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4aaeedbaa3cbed409e7e285ecfdadca
-      internalID: -87031464
+      spriteID: dc6fcf8ede86d2345b52e40f294b4299
+      internalID: -1490635617
       vertices: []
       indices: 
       edges: []
@@ -462,19 +462,19 @@ TextureImporter:
       name: Mainknight_16
       rect:
         serializedVersion: 2
-        x: 1909
-        y: 776
+        x: 1911
+        y: 774
         width: 520
         height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.3560312, y: 0.7839402}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d113bed79c58970499aaa1e5e65e78ac
-      internalID: -1225211845
+      spriteID: 5964689a2a1cfb44cb75ab199f78abb4
+      internalID: 1829920598
       vertices: []
       indices: 
       edges: []
@@ -488,14 +488,14 @@ TextureImporter:
         width: 5
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac80a0d0af017124c9cfcacb7dec6c0a
-      internalID: 2057081635
+      spriteID: 9364536680838314cb7dc6995b618834
+      internalID: -1398741500
       vertices: []
       indices: 
       edges: []
@@ -508,15 +508,15 @@ TextureImporter:
         y: 165
         width: 737
         height: 554
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4819611, y: 0.9730978}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf9fa74435b9af343a3f15960cfcde6c
-      internalID: -73952080
+      spriteID: 5a621431353ebb549bf38bd773bd6444
+      internalID: -649536096
       vertices: []
       indices: 
       edges: []
@@ -532,26 +532,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mainknight_0: 792396699
-      Mainknight_1: -640871013
-      Mainknight_10: 1164106500
-      Mainknight_11: -684599862
-      Mainknight_12: -92373501
-      Mainknight_13: -1086324748
-      Mainknight_14: 841829054
-      Mainknight_15: -87031464
-      Mainknight_16: -1225211845
-      Mainknight_17: 2057081635
-      Mainknight_18: -73952080
-      Mainknight_19: 608117047
-      Mainknight_2: -1700952762
-      Mainknight_3: -893036698
-      Mainknight_4: 2123050549
-      Mainknight_5: 2109636776
-      Mainknight_6: 1284775221
-      Mainknight_7: 2084350794
-      Mainknight_8: 121133172
-      Mainknight_9: -1501924688
+      Mainknight_0: -387268025
+      Mainknight_1: -1359763729
+      Mainknight_10: 726840155
+      Mainknight_11: -1035055281
+      Mainknight_12: -1831654410
+      Mainknight_13: -902724879
+      Mainknight_14: 1453618211
+      Mainknight_15: -1490635617
+      Mainknight_16: 1829920598
+      Mainknight_17: -1398741500
+      Mainknight_18: -649536096
+      Mainknight_2: 1921334787
+      Mainknight_3: -446685035
+      Mainknight_4: -2059966297
+      Mainknight_5: 1509291749
+      Mainknight_6: -1650637625
+      Mainknight_7: -607190986
+      Mainknight_8: -1957941933
+      Mainknight_9: -1602817351
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
