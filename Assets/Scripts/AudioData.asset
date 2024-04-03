@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b416d6461827fa41a4f3a30e63f6ca8, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  AudioObjects:
+  - audioName: Jump
+    audioClip: {fileID: 8300000, guid: 2186c625bb53f0841aaeaefe40ae2a8e, type: 3}
+  - audioName: ButtonClick
+    audioClip: {fileID: 0}
+  - audioName: Run
+    audioClip: {fileID: 0}
+  - audioName: Attack1
+    audioClip: {fileID: 8300000, guid: dd6b7b75a966bf545b86916fedc6893f, type: 3}
+  - audioName: Attack2
+    audioClip: {fileID: 8300000, guid: b447dec49ebafe348bf9eb406b854797, type: 3}
+  - audioName: MainMenuMusic
+    audioClip: {fileID: 8300000, guid: cf9eb945fb2f9c145bf7849b7793daa3, type: 3}
+  - audioName: BattleMusic
+    audioClip: {fileID: 8300000, guid: 05308d5d0092a9a41abb804beb10b124, type: 3}
+  - audioName: DeathSound
+    audioClip: {fileID: 8300000, guid: 468554ca1b5cfef4689d12d98cf8e2c1, type: 3}

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> OnDied;
 
     [SerializeField] private Collider _attackHitBox;
+    [SerializeField] private EnemyAnimator _animator;
 
     private float _attackDistance;
     private bool _isAttacking;
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     private float _speed;
 
     private bool _isFlipped = false;
+
 
     // TODO enemy logic
     public void Initialize(Transform playerTransform, float speed, float attackDistance)
@@ -33,20 +35,12 @@ public class Enemy : MonoBehaviour
             return;
 
         LookAtPlayer();
-        transform.position = Vector3.MoveTowards(transform.position, _playerTransform.position, _speed/10 * Time.deltaTime);
+        var toMove = Vector3.MoveTowards(transform.position, _playerTransform.position, _speed / 10 * Time.deltaTime);
+        toMove.y = transform.position.y;
+        transform.position = toMove;
         if(Vector3.Distance(transform.position, _playerTransform.position) < _attackDistance)
         {
             StartCoroutine(Attacking());
-        }
-    }
-
-    private void OnTriggerEnter(Collider other) // Imitation of death
-    {
-        if (other.gameObject.CompareTag("aaa"))
-        {
-            OnDied?.Invoke(this);
-            Debug.Log("Invoking");
-            _isInitialized = false;
         }
     }
 
@@ -60,19 +54,16 @@ public class Enemy : MonoBehaviour
     IEnumerator Attacking() // To-Do:  attack logic
     {
         _isAttacking = true;
-        Debug.Log("Started Enemy Attack");
-        yield return new WaitForSeconds(2f);
-
+        yield return new WaitForSeconds(1f);
+        _animator.Attack();
         if (_attackHitBox.bounds.Contains(_playerTransform.position))
         {
-            Debug.Log("Contains, so can deal damage");
             IDamagable damagable = _playerTransform.GetComponent<IDamagable>();
             if (damagable != null)
             {
                 damagable.TakeDamage(1);
             }
         }
-        Debug.Log("Ended Enemy Attack");
         _isAttacking = false;
     }
 

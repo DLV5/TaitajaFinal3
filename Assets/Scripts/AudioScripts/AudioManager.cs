@@ -1,92 +1,79 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
-
-    [Header("Audio Objects")]
-    [SerializeField] private List<MusicObject> musicObjects = new List<MusicObject>();
-    [SerializeField] private List<SFXObject> SFXObjects = new List<SFXObject>();
-
-    [SerializeField] private AudioSource _musicAudioSource;
-    [SerializeField] private AudioSource _SFXAudioSource;
+    [SerializeField] private AudioSource _sfxSource;
+    [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioMixer _audioMixer;
-    [SerializeField] private Slider _musicSlider;
-    [SerializeField] private Slider _SFXSlider;
 
-    private VolumeController _volumeController;
+    private static AudioManager _instance;
+    public static AudioManager Instance { get { return _instance; } }
 
-    private Dictionary<string, AudioClip> _audioClips;
+    [SerializeField] private AudioData _audioData;
 
-    private void Initialize()
-    {
-        _volumeController = new VolumeController(_audioMixer, _musicSlider, _SFXSlider);
-        _audioClips = new Dictionary<string, AudioClip>();
-        foreach (var musicObject in musicObjects)
-        {
-            _audioClips.Add(musicObject.musicType.ToString(), musicObject.clip);
-        }
-        foreach (var SFXObject in SFXObjects)
-        {
-            _audioClips.Add(SFXObject.sfxType.ToString(), SFXObject.clip);
-        }
-    }
+    private Dictionary<string, AudioClip> _audios = new Dictionary<string, AudioClip>();
+
+    public const string MUSIC_VOLUME_KEY = "musicVolume";
+    public const string SFX_VOLUME_KEY = "sfxVolume";
+
+
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-            Initialize();
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
         }
-    }
-    public void PlayAudio(MusicType musicType)
-    {
-        try
+        else
         {
-            _musicAudioSource.clip = _audioClips[musicType.ToString()];
-            _musicAudioSource.Play();
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
-        catch (Exception e)
+        foreach (var obj in _audioData.AudioObjects)
         {
-            if (!_audioClips.ContainsKey(musicType.ToString()))
-            {
-                Debug.LogWarning("There is no value with " + musicType.ToString() + " key " + " in " + _audioClips);
-            }
-            else
-            {
-                throw new Exception(e.Message);
-            }
+            string remake = obj.audioName.ToLower().Trim(); // clear (no whitespaces, no uppercase) version of AudioCLip name
+            if (_audios.ContainsKey(remake))
+                continue;
+            _audios.Add(remake, obj.audioClip);
         }
     }
-    public void PlayAudio(SFXType soundType)
-    {
-         try
-         {
-             _SFXAudioSource.clip = _audioClips[soundType.ToString()];
-             _SFXAudioSource.Play();
-         }
 
-         catch (Exception e)
-         {
-             if (!_audioClips.ContainsKey(soundType.ToString()))
-             {
-                  Debug.LogWarning("There is no value with " + soundType.ToString() + " key " + " in " + _audioClips);
-             }
-             else
-             {
-                  throw new Exception(e.Message);
-             }
-         }
+    /// <summary>
+    /// NOT case or whitespaces sensitive param
+    /// </summary>
+    /// <param name="audioName"></param>
+    private AudioClip GetAudio(string audioName)
+    {
+        string remake = audioName.ToLower().Trim(); // clear (no whitespaces, no uppercase) version of AudioCLip name
+        if (_audios.TryGetValue(remake, out AudioClip clip))
+        {
+            return clip;
+        }
+        else
+            return null;
+    }
+    public void PlaySFX(string audioName)
+    {
+        _sfxSource.clip = (GetAudio(audioName));
+        if (_sfxSource.clip != null)
+            _sfxSource.Play();
+    }
+    public void PlayMusic(string audioName)
+    {
+        _musicSource.clip = (GetAudio(audioName));
+        if (_musicSource.clip != null)
+            _musicSource.Play();
+    }
+
+    public void StopPlayMusic()
+    {
+        _musicSource.Stop();
+    }
+
+    public void ResumeMusic()
+    {
+        _musicSource.UnPause();
     }
 }

@@ -41,26 +41,38 @@ public partial class OpponentController : MonoBehaviour
             _battleInfosQueue.Enqueue(info);
         }
         ChangeBattle();
+        SpawnEnemies();
+
+        OnBattleEnded += ChangeBattle;
     }
 
     private void OnEnable()
     {
         EnemyHealth.OnDied += HandleEnemyDeath;
-        CameraConfinerController.OnPlayerReachedNewBattle += ChangeBattle;
+        CameraConfinerController.OnPlayerReachedNewBattle += SpawnEnemies;
     }
 
     private void OnDisable()
     {
         EnemyHealth.OnDied -= HandleEnemyDeath;
-        CameraConfinerController.OnPlayerReachedNewBattle -= ChangeBattle;
+        CameraConfinerController.OnPlayerReachedNewBattle -= SpawnEnemies;
     }
 
     private void ChangeBattle() // Moves to the next battle and spawn logic suitable for the next battle 
     {
+        if(_spawnPointsQueue.Count == 0 || _battleInfosQueue.Count == 0)
+        {
+            LevelManager.Instance.ShowWinScreen();
+            return;
+        }
+
         _currentSpawnPoints = _spawnPointsQueue.Dequeue();
         _currentBattle = _battleInfosQueue.Dequeue();
         currentBattleID++;
+    }
 
+    private void SpawnEnemies()
+    {
         while (IsSpawnAvailable())
         {
             SpawnEnemy();

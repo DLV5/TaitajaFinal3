@@ -22,14 +22,16 @@ public class PlayerAttackHandler : MonoBehaviour
         enemy.TakeDamage(_damage);
     }
 
+    public void StartedAttacking() => IsAttacking = true;
+    public void StoppedAttacking() => IsAttacking = false;
+
     public void EnableHitBox()
     {
         _attackHitBox.gameObject.SetActive(true);
-        IsAttacking = true;
     }
     public void DisableHitBox()
     {
         _attackHitBox.gameObject.SetActive(false);
-        IsAttacking = false;
+        StoppedAttacking();
     }
 }
