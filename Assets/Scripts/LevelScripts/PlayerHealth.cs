@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     [SerializeField] private int _maxHealth;
 
-    [SerializeField] private float _invincibilityTime = 1.5f;
+    [SerializeField] private float _invincibilityTime = .5f;
 
     private int _currentHealth;
 
@@ -52,5 +52,6 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     {
         _isInvincible = true;
         yield return new WaitForSeconds(_invincibilityTime);
+        _isInvincible = false;
     }
 }

@@ -83,7 +83,9 @@ public partial class OpponentController : MonoBehaviour
     {
         Enemy newEnemy = Instantiate(_enemyPrefab, _enemySpawnTransform);
         newEnemy.transform.position = _currentSpawnPoints[UnityEngine.Random.Range(0, _currentSpawnPoints.Count)].position;
-        newEnemy.Initialize(_playerTransform, _enemySpeed, _enemyAttackDistance);
+
+        float _randomSpeed = UnityEngine.Random.Range(0, _enemySpeed);
+        newEnemy.Initialize(_playerTransform, _randomSpeed, _enemyAttackDistance);
         _enemiesSpawned++;
         _currentBattle.amountOfEnemies--;
     }
